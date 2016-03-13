@@ -1,5 +1,5 @@
 # recurly_ui
-Coding exercise driving the Recurly web application. The test has been written using the rspec framework.
+Coding exercise driving the Recurly web application. The test has been written in Ruby using the rspec framework.
 
 There are two test files, one using only watir, the other using page-object library.
 

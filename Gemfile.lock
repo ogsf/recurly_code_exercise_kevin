@@ -18,6 +18,7 @@ GEM
       watir-webdriver (>= 0.6.11)
     page_navigation (0.9)
       data_magic (>= 0.14)
+    recurly (2.5.1)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -47,6 +48,7 @@ PLATFORMS
 
 DEPENDENCIES
   page-object
+  recurly (~> 2.5.1)
   rspec
   watir-webdriver
 

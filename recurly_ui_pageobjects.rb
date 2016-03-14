@@ -1,4 +1,6 @@
 require 'watir-webdriver'
+require 'rubygems'
+require 'recurly'
 require 'rspec'
 require 'page-object'
 
@@ -10,11 +12,13 @@ require_relative './kevint_accounts_page.rb'
 describe "Recurly UI" do
 
   before :all do
+    Recurly.subdomain = 'kevint'
+    Recurly.api_key = '21ce91e03831452794dca50790304a52'
     @browser = Watir::Browser.new :firefox
     @browser.goto "http://recurly.com"
   end
 
-  it "has zero accounts on Accounts page" do
+  it "has correct number of accounts on Accounts page" do
     #Log in to Recurly App.
     login_page = LoginPage.new(@browser, true)  # 'true' argument invokes 'goto' method
     login_page.login_user('kevint@boulder.net', 'password1')
@@ -29,7 +33,11 @@ describe "Recurly UI" do
     
     #confirm number of accounts
     kevint_accounts_page = KevintAccountsPage.new(@browser)
-    expect(kevint_accounts_page.all_accounts_count.to_i).to equal(0)
+    total_accounts = 0
+    Recurly::Account.find_each do |account|
+      total_accounts += 1
+    end
+    expect(kevint_accounts_page.all_accounts_count.to_i).to equal(total_accounts)
   end
 
   after :all do

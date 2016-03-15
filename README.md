@@ -2,7 +2,7 @@
 
 Coding exercise driving the Recurly web application and API. 
 
-The tests are written in Ruby, two of them using the Rspec framework.
+The tests are written in Ruby, three of them using the Rspec framework.
 
 Running 'bundle install' should install the necessary gems from the Gemfile. Or 'gem install [gem name]'
 

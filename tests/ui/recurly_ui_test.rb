@@ -5,7 +5,7 @@
 # using an open source page-object library.
 #
 # To run this file from the project root:
-# 'bundle exec ruby tests/ui/recurly_ui_test.rb'
+# 'bundle exec rspec tests/ui/recurly_ui_test.rb --format documentation'
 #
 # - Kevin Tinkler 3/14/16
 #

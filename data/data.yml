@@ -1,6 +1,8 @@
-api_kevint:
-  subdomain_kevint: kevint
-  api_key_kevint: 21ce91e03831452794dca50790304a52
+base_url: http://recurly.com
+
+api_1:
+  subdomain: kevint
+  api_key: 21ce91e03831452794dca50790304a52
   default_currency: USD
 
 api_account_1:
@@ -14,3 +16,7 @@ api_account_1:
   zip: 08817,
   country: Middle Earth,
   phone: 555-555-5151
+
+user_1:
+  login_email: kevint@boulder.net
+  login_password: password1

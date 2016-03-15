@@ -9,21 +9,27 @@ require 'watir-webdriver'
 require 'rubygems'
 require 'recurly'
 require 'rspec'
+require 'yaml'
 
 describe "Recurly UI" do
 
   before :all do
-    Recurly.subdomain = 'kevint'
-    Recurly.api_key = '21ce91e03831452794dca50790304a52'
+    #Return nested hash of data from yaml file
+    @data = YAML.load_file("data/data.yml")
+    api_auth = @data["api_1"]
+
+    Recurly.subdomain = api_auth["subdomain"]
+    Recurly.api_key = api_auth["api_key"]
     @b = Watir::Browser.new :firefox
-    @b.goto "http://recurly.com"
+    @b.goto @data["base_url"]
   end
 
   it "has correct number of accounts on Accounts page" do
     #Log in to Recurly App.
+    login = @data["user_1"]
     @b.link(:text => "Log in").when_present.click
-    @b.text_field(:id => 'user_email').set 'kevint@boulder.net'
-    @b.text_field(:id => 'user_password').set 'password1'
+    @b.text_field(:id => 'user_email').set login["login_email"]
+    @b.text_field(:id => 'user_password').set login["login_password"]
     @b.button(:id => 'submit_button').click
 
     #Navigate to Accounts page
@@ -34,11 +40,13 @@ describe "Recurly UI" do
     expect(@b.text).to include('Account Status')
     
     #confirm number of accounts
-    total_accounts = 0
+    api_total_accounts = 0
     Recurly::Account.find_each do |account|
-      (total_accounts += 1).to_s
+      (api_total_accounts += 1)
     end
-    expect(@b.text).to include("Displaying all #{total_accounts} accounts")
+
+    web_total_accounts = (@b.link(:class => 'all_accounts').span(:class => 'Facet-option-count').text).to_i
+    expect(web_total_accounts).to eq(api_total_accounts)
   end
 
   after :all do

@@ -15,10 +15,10 @@ describe "Recurly Accounts API" do
   before :all do
     #Return nested hash of data from yaml file
     @data = YAML.load_file("data/data.yml")
-    api_auth = @data["api_kevint"]
+    api_auth = @data["api_1"]
 
-    Recurly.subdomain         = api_auth["subdomain_kevint"]
-    Recurly.api_key           = api_auth["api_key_kevint"]
+    Recurly.subdomain         = api_auth["subdomain"]
+    Recurly.api_key           = api_auth["api_key"]
     Recurly.default_currency  = api_auth["default_currency"]
     @unique_account_code      = DateTime.now.strftime('%s')
   end
@@ -26,7 +26,7 @@ describe "Recurly Accounts API" do
   it "creates a new account" do
     #Clean up first part of data hash reference
     account_data = @data["api_account_1"]
-    
+
     account = Recurly::Account.create(
     :account_code => @unique_account_code,
     :email        => account_data["email"],

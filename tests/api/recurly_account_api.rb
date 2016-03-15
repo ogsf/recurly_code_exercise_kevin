@@ -3,9 +3,9 @@
 # The Rspec test version is located at 'tests/api/recurly_account_api_rspec.rb'
 #
 # Run this here file from project root; 
-# bundle exec ruby tests/api/recurly_account_api.rb
+# 'bundle exec ruby tests/api/recurly_account_api.rb'
 #
-# - Kevin Tinkler 3/13/16
+# - Kevin Tinkler 3/14/16
 
 require 'rubygems'
 require 'recurly'

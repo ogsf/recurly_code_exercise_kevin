@@ -1,14 +1,18 @@
 # recurly_ui
-Coding exercise driving the Recurly web application. The test has been written in Ruby using the rspec framework.
 
-There are two test files, one using only watir, the other using page-object library.
+Coding exercise driving the Recurly web application and API. 
 
-To run 'recurly_ui_test.rb', 2 gems need to be installed: 'watir-webdriver' and 'rspec', then...
-'bundle exec rspec recurly_ui_test.rb --format documentation'
-
-To run 'recurly_ui_pageobjects.rb', 3 gems need to be installed: 'watir-webdriver', 'rspec', and 'page-object', then...
-'bundle exec rspec recurly_ui_pageobjects.rb --format documentation'
+The tests are written in Ruby, two of them using the Rspec framework.
 
 Running 'bundle install' should install the necessary gems from the Gemfile. Or 'gem install [gem name]'
 
+Each test file should be run from the project root. Each file contains comments with instructions on how 
+to run the file. The commands for each file are below:
 
+'bundle exec ruby tests/ui/recurly_ui_test.rb'
+
+'bundle exec rspec tests/ui/recurly_ui_pageobjects.rb --format documentation'
+
+'bundle exec ruby tests/api/recurly_account_api.rb'
+
+'bundle exec rspec tests/api/recurly_account_api_rspec.rb --format documentation'

@@ -1,8 +1,8 @@
 #
 # To run this here spec from project root;
-# bundle exec rspec tests/api/recurly_account_api_rspec.rb --format documentation
+# 'bundle exec rspec tests/api/recurly_account_api_rspec.rb --format documentation'
 #
-# - Kevin Tinkler 3/13/16
+# - Kevin Tinkler 3/14/16
 #
 require 'rubygems'
 require 'recurly'

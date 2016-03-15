@@ -1,9 +1,13 @@
 #
 # This test is me figuring out Rspec and Watir for the first time.
 # It works fine, but element definitions and functions should be abstracted out
-# of the test. I did this with the 'tests/ui/recurly_ui_pageobjects.rb' spec.
+# of the test. I did this with the 'tests/ui/recurly_ui_pageobjects.rb' spec,
+# using an open source page-object library.
 #
-# - Kevin Tinkler 3/13/16
+# To run this file from the project root:
+# 'bundle exec ruby tests/ui/recurly_ui_test.rb'
+#
+# - Kevin Tinkler 3/14/16
 #
 require 'watir-webdriver'
 require 'rubygems'

@@ -3,9 +3,9 @@
 # centralize element definitions and page methods in one place.
 #
 # To run this here spec from the project root;
-# bundle exec rspec tests/ui/recurly_ui_pageobjects.rb --format documentation
+# 'bundle exec rspec tests/ui/recurly_ui_pageobjects.rb --format documentation'
 #
-# - Kevin Tinkler 3/13/16 
+# - Kevin Tinkler 3/14/16 
 #
 require 'watir-webdriver'
 require 'rubygems'
